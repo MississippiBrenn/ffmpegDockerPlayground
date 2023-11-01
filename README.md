@@ -23,10 +23,13 @@ Some example commands to run once container is open
 3. Extract frames from video at specific time stamps(0,50 and 100s) and save them as PNG images
    ffmpeg -i video.mp4 -vf "select='eq(n,0)+eq(n,50)+eq(n,100)'" -vsync vfr %03d.png
 
-4.Trim the video to specific duration
-ffmpeg -i video.mp4 -ss 00:01:30 -t 00:00:30 trimmed.mp4
+4. Trim the video to specific duration
+   ffmpeg -i video.mp4 -ss 00:01:30 -t 00:00:30 trimmed.mp4
 
-5. Next steps: Stream video to vlc player
-   Requires vlc libaray
+5. Copy transcoded output file from container to host machine
+   docker cp <container_id>:/app/video.mp4 /path/to/output.mp4
 
-6. Next steps: Play video to browser (requires nginx configuration)
+Next steps: Stream video to vlc player
+Requires vlc library
+
+Next steps: Play video to browser (requires nginx configuration)
